@@ -1,0 +1,218 @@
+mkdir sql_reference
+cd sql_reference
+
+touch README.md
+git add README.md
+add to README file
+
+touch sql_reference.json
+git add sql_reference.json
+git commit -m "Initial commit"
+
+add to .json file
+git add sql_reference.json
+git commit -m "feat: add create database reference"
+
+add to .json file
+git add sql_reference.json
+git commit -m "feat: add drop database reference"
+
+git branch feat/add-create-table-reference
+git checkout feat/add-create-table-reference
+add to .json file
+git add sql_reference.json
+git commit -m "feat: add create table reference"
+
+git log --oneline
+git checkout main
+git merge feat/add-create-table-reference
+git branch -d feat/add-create-table-reference
+
+git checkout -b feat/add-drop-table-reference
+add to .json file
+git add sql_reference.json
+git commit -m "feat: add drop table reference"
+
+git checkout main
+git merge feat/add-drop-table-reference
+git branch -d feat/add-drop-table-reference
+
+git checkout -b feat/add-column-references
+add to .json file
+git add .
+git commit -m "feat: add column reference"
+
+git checkout main
+git checkout -b fix/create-table-syntax
+add to .json file
+git add sql_reference.json
+git commit -m "fix: create table syntax"
+
+git checkout main
+git merge fix/create-table-syntax
+git branch -d fix/create-table-syntax
+
+git checkout feat/add-column-references
+add to .json file
+git rebase main
+git add .
+git commit -m "feat: add drop column reference"
+
+git checkout -b feat/add-insert-row-reference
+add to .json file
+git add . 
+git commit -m "feat: add insert row reference"
+
+git checkout main
+git merge feat/add-insert-row-reference
+git checkout feat/add-column-references
+
+git rebase main
+fix .json file
+git add .
+git rebase --continue
+add to .json file
+git add .
+git commit -m "feat: add rename column reference"
+
+git checkout feat/add-insert-row-reference
+add to .json file
+git stash
+git stash list
+git stash pop
+git stash show
+git stash show -p
+git stash apply
+git stash show stash@{1}
+git stash show stash@{1} -p
+git stash drop
+
+git checkout main
+git branch -d feat/add-insert-row-reference
+
+git checkout -b feat/add-more-row-references
+git stash list
+git stash pop
+git add .
+git commit -m "feat: add update row reference"
+
+git rebase main
+fix .json file
+git add .
+git rebase --continue
+add to .json file
+git add .
+git commit -m "feat: add primary key reference"
+add to .json file
+git add .
+git commit -m "feat: add foreign key reference"
+
+git checkout feat/add-more-row-references
+add to .json file
+git add .
+git commit -m "feat: add delete row reference"
+
+git checkout main
+git merge feat/add-more-row-references
+git branch -d feat/add-more-row-references
+
+git checkout -b fix/add-missing-rename-references
+add to .json file
+git add .
+git commit -m "fix: add missing rename database reference"
+
+git checkout feat/add-column-references
+git rebase main
+fix .json file
+git add .
+git rebase --continue
+add to .json file
+git diff 
+git add .
+git commit -m "feat: add unique reference"
+
+git reset HEAD~1
+git log --oneline
+git add .
+git commit -m "feat: add unique reference"
+
+git revert HEAD
+git show
+git show HEAD~1
+
+git rebase --interactive HEAD~2
+enter nano
+pick -> d
+pick -> d
+save & exit
+
+git rebase --interactive --root
+enter nano
+pick -> r a03ceaa feat: add column reference
+save & exit
+enter nano to edit message
+add s to commit message
+save & exit
+
+git rebase main
+git rebase --interactive HEAD~5
+enter nano
+pick -> s for combinable commits
+save & exit
+enter nano squash to view all messages
+exit
+
+git log -1
+git checkout main
+git merge feat/add-column-references
+git branch -d feat/add-column-references
+
+git checkout fix/add-missing-rename-references
+git rebase main
+git log -5 --oneline
+add to .json file
+git add .
+git commit -m "fix: add missing rename table reference"
+
+git rebase --interactive HEAD~2
+enter nano
+pick -> s 3308000 fix: add missing rename table reference
+save & exit
+enter nano squash
+add 'fix: add missing rename references' to top of file
+save & exit
+
+git log -1
+git checkout main
+git merge fix/add-missing-rename-references
+git branch -d fix/add-missing-rename-references
+git log --oneline
+
+git checkout -b feat/add-gitignore
+touch .env
+add SECRET=MY_SECRET to .env
+
+touch .gitignore
+add .env to .gitignore
+git add .
+git commit -m "feat: add .gitignore"
+
+touch sample.env
+add SECRET= to sample.env
+git add .
+git commit -m "feat: add sample.env"
+
+git log -5 --oneline
+git rebase --interactive HEAD~2
+enter nano
+pick -> s d297860 feat: add sample.env
+save & exit
+enter nano squash
+add 'feat: add .gitignore and sample.env' to top of file
+save & exit
+
+git log -1
+git checkout main
+git merge feat/add-gitignore
+git branch -d feat/add-gitignore
+git log 
